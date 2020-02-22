@@ -1,0 +1,26 @@
+#spring.datasource.url=jdbc:mysql://customer-poc-1.caoolz8i5ynf.us-east-1.rds.amazonaws.com:3306/customerpoc1
+##spring.datasource.driverClassName=com.mysql.jdbc.Driver
+#spring.datasource.username=admin
+#spring.datasource.password=customerpoc
+##spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+#server.port:9001
+#spring.cloud.stream.kafka.binder.brokers=localhost:9092
+#spring.cloud.stream.kafka.bindings.notification=
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: http://192.168.86.255:2181
+        bindings:
+          notification-out:
+            destination: customer-notification
+            contentType: application/json
+  datasource:
+    url: jdbc:mysql://customer-poc-1.caoolz8i5ynf.us-east-1.rds.amazonaws.com:3306/customerpoc1
+    driver-class-name: com.mysql.jdbc.Driver
+    data-username: admin
+    data-password: customerpoc
+server:
+  port: 9001
